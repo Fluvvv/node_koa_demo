@@ -1,6 +1,4 @@
-### 一、背景
-
-结合当前的node比较火的三大框架，Express、Koa、egg。笔者之前用的Express,后面发现回调把我搞死了，实在太无奈了。终于有一天去尝试了Koa来进行开发，发现实在太舒服了。ES6语法支持很多，同步模式也很到位，但是在学习koa的过程中，发现基本的基础知识都了解了，也按照官方的文档走了一遍，但发现好像无从下手。感觉开发过程中，分层不太明显，业务逻辑简单还好，一多麻烦就来了。查看了资料后，有一个koa的脚手架叫做```koa-generator```,马上尝试后发现不是我想要的模板。看来github已经有2年没有维护了，koa2一些新特性也没有加上，感觉有点快落伍了。于是结合其他人的模式，也避免后面自己过多的重复造轮子。编写一个Koa项目的初始模板。主要遵循MVC模式，这个模板主要的功能集成了Logger、Router、JWT、Mongoose、PM2等模块，还有部分的中间件集合，该模板对于简单的后台项目来说基本够用了，没有考虑高并发处理，后期会继续完善。对于初学者来说，可以快速的新项目开发，在开始之前先好好看下面的解读。
+### 一、
 
 ### 二、目录结构
 
@@ -864,50 +862,3 @@ module.exports = {
 }
 
 ```
-
-#### package.json文件
-
-每个Nodejs项目的根目录下面，一般都会有一个package.json文件。该文件可以由npm init生成，我们再开始已经操作了，定义了项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。
-package.json文件内部就是一个JSON对象，该对象的每一个成员就是当前项目的一项设置。我们也可在里面配置我们的```npm run XXX```的命令，大家可以根据需求进行配置。这是这项目需要用到的package.json文件。看是否与你的跟该文件一样。
-```
-{
-  "name": "koa-template",
-  "version": "0.1.0",
-  "author": "bayi",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www",
-    "dev": "pm2 start ecosystem.config.js --env dev",
-    "test": "pm2 start ecosystem.config.js --env test",
-    "pro": "pm2 start ecosystem.config.js --env pro",
-    "logs": "pm2 logs",
-    "stop": "pm2 stop ecosystem.config.js"
-  },
-  "dependencies": {
-    "koa": "^2.6.2",
-    "koa-bodyparser": "^4.2.1",
-    "koa-helmet": "^4.1.0",
-    "koa-jwt": "^3.5.1",
-    "koa-router": "^7.4.0",
-    "koa-static-cache": "^5.1.2",
-    "koa2-cors": "^2.0.6",
-    "log4js": "^3.0.6",
-    "mongoose": "^5.5.5"
-  }
-}
-
-```
-
-### 三、其他
-
-####github地址： 
-
-https://github.com/bayi-lzp/koa-template    （star！ star！star！）
-
-####技术栈： 
-
-koa2、mongoose
-
-####近期会更新：
-
-redis、docker
